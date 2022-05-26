@@ -26,7 +26,8 @@
    <?php foreach ($data as $Name) { ?>      
       <tr>
           <td><?php echo $Name->title; ?></td>
-          <td><?php echo $Email->Email; ?></td>          
+          <td><?php echo $Email->Email; ?></td>   
+          <td><?php echo $Number->Number; ?></td>       
       <td>
         <form method="DELETE" action="<?php echo base_url('itemCRUD/delete/'.$Name->User_ID);?>">
           <a class="btn btn-info" href="<?php echo base_url('itemCRUD/'.$Name->User_ID) ?>"> show</a>
