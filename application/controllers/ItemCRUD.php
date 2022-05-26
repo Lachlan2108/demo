@@ -51,7 +51,9 @@ class ItemCRUD extends CI_Controller {
 
 
       $this->load->view('theme/header');
-      $this->load->view('itemCRUD/show',array('item'=>$item));
+      $this->load->view('itemCRUD/show',array('Name'=>$item));
+      $this->load->view('itemCRUD/show',array('Email'=>$item));
+      $this->load->view('itemCRUD/show',array('Number'=>$item));
       $this->load->view('theme/footer');
    }
 
@@ -76,16 +78,17 @@ class ItemCRUD extends CI_Controller {
    */
    public function store()
    {
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('description', 'Description', 'required');
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('Email', 'Email', 'required');
+        $this->form_validation->set_rules('Number', 'Number', 'required');
 
 
         if ($this->form_validation->run() == FALSE){
             $this->session->set_flashdata('errors', validation_errors());
-            redirect(base_url('itemCRUD/create'));
+            redirect(site_url('itemCRUD/create'));
         }else{
            $this->itemCRUD->insert_item();
-           redirect(base_url('itemCRUD'));
+           redirect(site_url('itemCRUD'));
         }
     }
 
@@ -113,16 +116,16 @@ class ItemCRUD extends CI_Controller {
    */
    public function update($User_ID)
    {
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('Email', 'Email', 'required');
+        $this->form_validation->set_rules('Number', 'Number', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $this->session->set_flashdata('errors', validation_errors());
-            redirect(base_url('itemCRUD/edit/'.$User_ID));
+            redirect(site_url('itemCRUD/edit/'.$User_ID));
         }else{ 
           $this->itemCRUD->update_item($User_ID);
-          redirect(base_url('itemCRUD'));
+          redirect(site_url('itemCRUD'));
         }
    }
 
@@ -135,6 +138,6 @@ class ItemCRUD extends CI_Controller {
    public function delete($User_ID)
    {
        $item = $this->itemCRUD->delete_item($User_ID);
-       redirect(base_url('itemCRUD'));
+       redirect(site_url('itemCRUD'));
    }
 }
