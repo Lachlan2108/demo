@@ -10,7 +10,7 @@
 </div>
 
 
-<form method="post" action="<?php echo base_url('itemCRUD/update/'.$item->id);?>">
+<form method="post" action="<?php echo base_url('itemCRUD/update/'.$item->User_ID);?>">
     <?php
 
 
@@ -27,14 +27,14 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Title:</strong>
-                <input type="text" name="title" class="form-control" value="<?php echo $item->title; ?>">
+                <strong>Name:</strong>
+                <input type="text" name="Name" class="form-control" value="<?php echo $item->Name; ?>">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
-                <textarea name="description" class="form-control"><?php echo $item->description; ?></textarea>
+                <strong>Email:</strong>
+                <textarea name="Email" class="form-control"><?php echo $item->Email; ?></textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

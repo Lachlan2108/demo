@@ -45,9 +45,9 @@ class ItemCRUD extends CI_Controller {
     *
     * @return Response
    */
-   public function show($id)
+   public function show($User_ID)
    {
-      $item = $this->itemCRUD->find_item($id);
+      $item = $this->itemCRUD->find_item($User_ID);
 
 
       $this->load->view('theme/header');
@@ -95,9 +95,9 @@ class ItemCRUD extends CI_Controller {
     *
     * @return Response
    */
-   public function edit($id)
+   public function edit($User_ID)
    {
-       $item = $this->itemCRUD->find_item($id);
+       $item = $this->itemCRUD->find_item($User_ID);
 
 
        $this->load->view('theme/header');
@@ -111,7 +111,7 @@ class ItemCRUD extends CI_Controller {
     *
     * @return Response
    */
-   public function update($id)
+   public function update($User_ID)
    {
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
@@ -119,9 +119,9 @@ class ItemCRUD extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE){
             $this->session->set_flashdata('errors', validation_errors());
-            redirect(base_url('itemCRUD/edit/'.$id));
+            redirect(base_url('itemCRUD/edit/'.$User_ID));
         }else{ 
-          $this->itemCRUD->update_item($id);
+          $this->itemCRUD->update_item($User_ID);
           redirect(base_url('itemCRUD'));
         }
    }
@@ -132,9 +132,9 @@ class ItemCRUD extends CI_Controller {
     *
     * @return Response
    */
-   public function delete($id)
+   public function delete($User_ID)
    {
-       $item = $this->itemCRUD->delete_item($id);
+       $item = $this->itemCRUD->delete_item($User_ID);
        redirect(base_url('itemCRUD'));
    }
 }

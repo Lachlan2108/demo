@@ -73,8 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-function OpenCon()
- {
+
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
@@ -96,11 +95,3 @@ function OpenCon()
 		'failover' => array(),
 		'save_queries' => TRUE
 	);
-
-	$conn = new mysqli('localhost', 'root', 'mysql' ,'demo') or die("Connect failed: %s\n". $conn -> error);
-
-	return $conn;
- }
-
-
-
