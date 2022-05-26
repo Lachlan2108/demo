@@ -16,21 +16,21 @@
   <thead>
       <tr>
           <th>Title</th>
-          <th>Description</th>
+          <th>Email</th>
           <th width="220px">Action</th>
       </tr>
   </thead>
 
 
   <tbody>
-   <?php foreach ($data as $item) { ?>      
+   <?php foreach ($data as $Name) { ?>      
       <tr>
-          <td><?php echo $item->title; ?></td>
-          <td><?php echo $item->description; ?></td>          
+          <td><?php echo $Name->title; ?></td>
+          <td><?php echo $Email->Email; ?></td>          
       <td>
-        <form method="DELETE" action="<?php echo base_url('itemCRUD/delete/'.$item->id);?>">
-          <a class="btn btn-info" href="<?php echo base_url('itemCRUD/'.$item->id) ?>"> show</a>
-         <a class="btn btn-primary" href="<?php echo base_url('itemCRUD/edit/'.$item->id) ?>"> Edit</a>
+        <form method="DELETE" action="<?php echo base_url('itemCRUD/delete/'.$Name->User_ID);?>">
+          <a class="btn btn-info" href="<?php echo base_url('itemCRUD/'.$Name->User_ID) ?>"> show</a>
+         <a class="btn btn-primary" href="<?php echo base_url('itemCRUD/edit/'.$Name->User_ID) ?>"> Edit</a>
           <button type="submit" class="btn btn-danger"> Delete</button>
         </form>
       </td>     

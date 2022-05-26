@@ -14,13 +14,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Title:</strong>
-            <?php echo $item->title; ?>
+            <?php echo $Name->title; ?>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Description:</strong>
-            <?php echo $item->description; ?>
+            <strong>Email:</strong>
+            <?php echo $Name->Email; ?>
         </div>
     </div>
 </div>

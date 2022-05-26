@@ -7,7 +7,7 @@ class ItemCRUDModel extends CI_Model{
     public function get_itemCRUD(){
         if(!empty($this->input->get("search"))){
           $this->db->like('Name', $this->input->get("search"));
-          $this->db->or_like('description', $this->input->get("search")); 
+          $this->db->or_like('Email', $this->input->get("search")); 
         }
         $query = $this->db->get("Name");
         return $query->result();
@@ -18,7 +18,7 @@ class ItemCRUDModel extends CI_Model{
     {    
         $data = array(
             'title' => $this->input->post('title'),
-            'description' => $this->input->post('description')
+            'Email' => $this->input->post('Email')
         );
         return $this->db->insert('Name', $data);
     }
@@ -28,7 +28,7 @@ class ItemCRUDModel extends CI_Model{
     {
         $data=array(
             'title' => $this->input->post('title'),
-            'description'=> $this->input->post('description')
+            'Email'=> $this->input->post('Email')
         );
         if($User_ID==0){
             return $this->db->insert('Name',$data);
